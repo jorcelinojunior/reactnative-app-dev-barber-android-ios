@@ -1,0 +1,79 @@
+
+
+
+Dependencias:
+	
+	// Para estilizar
+	> yarn add styled-components
+	
+	
+	
+	// Para fazer o gerenciamento de páginas, ou seja, ir de uma página para outra
+	> yarn add @react-navigation/native
+		// outras dependencia que ele precisa	
+		> yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+		
+	> yarn add @react-navigation/stack
+	
+	
+	// ...
+	> yarn add @react-navigation/bottom-tabs
+	
+	// Para gerenciar o login, vamos salvar o token de acesso usando o jwt
+	> yarn add @react-native-community/async-storage
+	
+	// Para pegar a localização do usuário
+	> yarn add @react-native-community/geolocation
+
+	// Nas versões mais novas do android, para poder usar a localização, precisa-se pedir uma autorização extra
+	> yarn add react-native-permissions
+	
+	// Após instalar o location, vá na pasta ANDROID>APP>SRC>MAIN e no arquivo AndroidManifest.xml adicione logo no começo o pedido de permissão com a linha de código abaixo:
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+		
+	// Para poder fazer o swiper
+	> yarn add react-native-swiper
+	 
+	// Bibliotecas para ajudar a trabalhar com o SVG
+	> yarn add react-native-svg
+	> yarn add react-native-svg-transformer
+		// Logo depois de instalar, siga os STEP 3 do link para configurar: https://github.com/kristerkari/react-native-svg-transformer
+	
+	
+	
+	///// Dependencias instaladas, vamos para a criação do aplicativo em si
+	
+	// Apagamos tudo dentro de App.js...
+	
+	
+	[--START e RUN--]
+	react-native start --port 8081
+	react-native run-android --port=8081 --deviceId=9c3a534
+	
+	[ADB]
+	adb forward tcp:5555 tcp:5555
+	adb tcpip 5555
+	adb -s 9c3a534 reverse tcp:8081 tcp:8081
+	
+	adb connect 192.168.0.153
+	
+	[GRADLEW]
+	cd /android
+	./gradlew clean
+	./gradlew cleanBuildCache
+	
+	[]
+	react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/app.bundle
+
+	npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./index.android.bundle --assets-dest android/app/src/main/res    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
