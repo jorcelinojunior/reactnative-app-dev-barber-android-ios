@@ -23,18 +23,12 @@ import {
   SwipeImage,
   SwipeItem,
   TestimonialArea,
-
   UserAvatar,
-
-
   UserFavButtom,
   UserInfo,
   UserInfoArea,
-
-
   UserInfoName
 } from './styles';
-
 
 export default () => {
   const navigation = useNavigation();
@@ -55,7 +49,7 @@ export default () => {
       let json = await Api.getBarber(userInfo.id);
       if (json.error === '') {
         let data = json.data;
-        //setUserInfo(data);
+        setUserInfo(data);
       } else {
         alert('Erro: ', json.error);
       }
@@ -68,7 +62,7 @@ export default () => {
 
   const handleBackButtom = () => {
     navigation.goBack();
-  }
+  };
 
   return ( <
     Container >
@@ -108,10 +102,11 @@ export default () => {
             <
             SwipeImage source = {
               {
-                uri: item.url
+                uri: item.url,
               }
             }
-            resizeMode = "cover" / >
+            resizeMode = "cover" /
+            >
             <
             /SwipeItem>
           ))
@@ -127,7 +122,7 @@ export default () => {
     <
     UserAvatar source = {
       {
-        uri: userInfo.avatar
+        uri: userInfo.avatar,
       }
     }
     /> <
@@ -162,9 +157,9 @@ export default () => {
       handleBackButtom
     } >
     <
-    BackIcon width = '44'
-    height = '44'
-    fill = '#fff' / >
+    BackIcon width = "44"
+    height = "44"
+    fill = "#fff" / >
     <
     /BackButtom> <
     /Container>
